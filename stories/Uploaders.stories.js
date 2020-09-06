@@ -1,3 +1,3 @@
-export default { title: 'SingleFileUploader' }
+export default { title: 'Uploaders' }
 
 export const singleFileUploader = () => '<SingleFileUploader />'
