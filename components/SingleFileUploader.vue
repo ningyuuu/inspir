@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input id="file-upload" ref="fileinput" type="file" hidden @change="whee">
+    <input id="file-upload" ref="fileinput" type="file" hidden @change="updateFile">
     <label for="file-upload">
       <div class="border-red-400 border-4 border-dashed text-center p-20 rounded-md text-red-600 w-full" @dragover.prevent @drop.prevent="dropFile">
         <div v-if="!file">Click to upload or drag a file in</div>
@@ -24,7 +24,7 @@ export default {
       if (!droppedFiles) { return }
       this.file = droppedFiles[0]
     },
-    whee () {
+    updateFile () {
       this.file = this.$refs.fileinput.files[0]
     }
   }
