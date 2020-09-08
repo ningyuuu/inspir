@@ -1,3 +1,4 @@
+import config from './inspir.config'
 
 export default {
   /*
@@ -55,7 +56,8 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
@@ -77,5 +79,14 @@ export default {
     stories: [
       '~/stories/**/*.stories.js'
     ]
+  },
+  proxy: {
+    '/upload': {
+      target: config.queryUrl,
+      pathRewrite: {
+        '^/upload': '/',
+        changeOrigin: true
+      }
+    }
   }
 }

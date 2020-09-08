@@ -1,11 +1,11 @@
 <template>
   <div class="container mx-auto">
-    <div class="text-center px-3 lg:px-0 flex flex-col h-screen">
-      <h1 class="my-4 text-2xl md:text-3xl lg:text-5xl font-semibold text-red-600 flex-grow-0">
-        inspir
+    <div class="flex flex-col h-screen text-center">
+      <h1 class="flex-grow-0 text-5xl font-semibold text-red-600 mt-4">
+        {{ title }}
       </h1>
-      <div class="p-4 m-4 flex-grow">
-        <SingleFileUploader />
+      <div class="flex-grow p-4 m-4">
+        <SingleFileUploader v-if="singleMode" />
       </div>
       <div class="flex-grow-0 pb-4 mb-4">
         <Button />
@@ -15,5 +15,15 @@
 </template>
 
 <script>
-export default {}
+import config from '~/inspir.config'
+export default {
+  computed: {
+    singleMode () {
+      return config.mode.type === 'file' && config.mode.count === 1
+    },
+    title () {
+      return config.title
+    }
+  }
+}
 </script>

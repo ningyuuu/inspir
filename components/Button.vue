@@ -24,7 +24,9 @@ export default {
     }
   },
   methods: {
-    submit () {}
+    submit () {
+      this.$store.dispatch('upload/submit')
+    }
   }
 }
 </script>
