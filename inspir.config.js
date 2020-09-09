@@ -3,7 +3,7 @@ export default {
   queryUrl: 'https://postman-echo.com/post',
   mode: {
     type: 'file',
-    count: 1,
+    multi: true,
     param: 'file'
   }
 }

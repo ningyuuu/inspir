@@ -5,7 +5,7 @@
         {{ title }}
       </h1>
       <div class="flex-grow p-4 m-4">
-        <SingleFileUploader v-if="singleMode" />
+        <SingleFileUploader v-if="isSingleFile" />
       </div>
       <div class="flex-grow-0 pb-4 mb-4">
         <Button />
@@ -18,8 +18,8 @@
 import config from '~/inspir.config'
 export default {
   computed: {
-    singleMode () {
-      return config.mode.type === 'file' && config.mode.count === 1
+    isSingleFile () {
+      return config.mode.type === 'file' && !config.mode.multi
     },
     title () {
       return config.title
