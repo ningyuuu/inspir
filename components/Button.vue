@@ -14,7 +14,7 @@
 export default {
   computed: {
     disabled () {
-      return !this.$store.state.upload.file
+      return !this.$store.getters['upload/submittable']
     },
     activeClasses () {
       if (this.disabled) {

@@ -81,10 +81,10 @@ export default {
     ]
   },
   proxy: {
-    '/upload': {
+    '/submit': {
       target: config.queryUrl,
       pathRewrite: {
-        '^/proxy': '/',
+        '^/submit': '/',
         changeOrigin: true
       }
     }
