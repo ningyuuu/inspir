@@ -21,7 +21,9 @@ export default {
     kb: val => Math.floor(val / 1024)
   },
   computed: {
-    file: () => this.$store.state.upload.file
+    file () {
+      return this.$store.state.upload.file
+    }
   },
   methods: {
     dropFile (e) {
