@@ -17,9 +17,6 @@
 
 <script>
 export default {
-  filters: {
-    kb: val => Math.floor(val / 1024)
-  },
   computed: {
     file () {
       return this.$store.state.upload.file

@@ -8,21 +8,19 @@
       multiple
       @change="updateFile"
     >
-    <label for="file-upload">
-      <div
-        class="border-red-600 border-4 border-dashed rounded-md w-full h-full
-               text-center text-red-600 text-2xl items-center flex flex-col justify-center"
-        @dragover.prevent
-        @drop.prevent="dropFile"
-      >
-        <div class="w-full">Click to upload or drag files into the box</div>
-        <div v-if="files.length">
-          <div v-for="file in files" :key="file.name">
-            {{ file.name }} ({{ file.size }} kb)
-          </div>
+    <div
+      class="border-red-600 border-4 border-dashed rounded-md w-full h-full p-20
+               text-center text-red-600 items-center flex flex-col justify-center"
+      @dragover.prevent
+      @drop.prevent="dropFile"
+    >
+      <label for="file-upload" class="w-full text-2xl">Click to upload or drag files into the box</label>
+      <div v-if="hasFiles" class="flex">
+        <div v-for="(file, idx) in files" :key="idx">
+          <FileBoxItem :file-idx="idx" />
         </div>
       </div>
-    </label>
+    </div>
   </div>
 </template>
 
@@ -34,6 +32,9 @@ export default {
   computed: {
     files () {
       return this.$store.state.upload.files
+    },
+    hasFiles () {
+      return !!this.files.length
     }
   },
   methods: {

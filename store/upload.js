@@ -15,6 +15,9 @@ export const mutations = {
   },
   addFileToList (state, files) {
     state.files = state.files.concat(files)
+  },
+  deleteFileFromList (state, fileIdx) {
+    state.files = state.files.filter((_, idx) => idx !== fileIdx)
   }
 }
 

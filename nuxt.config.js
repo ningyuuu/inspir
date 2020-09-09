@@ -78,6 +78,9 @@ export default {
   storybook: {
     stories: [
       '~/stories/**/*.stories.js'
+    ],
+    addons: [
+      '@storybook/addon-viewport'
     ]
   },
   proxy: {
