@@ -14,6 +14,6 @@ export const actions = {
   async submit (context) {
     const formData = new FormData()
     formData.append(config.mode.param, context.state.file)
-    await this.$axios.$post('/upload', formData)
+    await this.$axios.$post('/submit', formData)
   }
 }

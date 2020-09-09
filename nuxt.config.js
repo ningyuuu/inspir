@@ -84,7 +84,7 @@ export default {
     '/upload': {
       target: config.queryUrl,
       pathRewrite: {
-        '^/upload': '/',
+        '^/proxy': '/',
         changeOrigin: true
       }
     }
