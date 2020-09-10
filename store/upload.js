@@ -18,6 +18,10 @@ export const mutations = {
   },
   deleteFileFromList (state, fileIdx) {
     state.files = state.files.filter((_, idx) => idx !== fileIdx)
+  },
+  clear (state) {
+    state.files = []
+    state.file = null
   }
 }
 

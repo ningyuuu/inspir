@@ -1,3 +1,3 @@
 export default { title: 'Button' }
 
-export const primaryButton = () => '<Button></Button>'
+export const primaryButton = () => '<SubmitButton></SubmitButton>'

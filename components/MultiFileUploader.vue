@@ -9,16 +9,22 @@
       @change="updateFile"
     >
     <div
-      class="border-red-600 border-4 border-dashed rounded-md w-full h-full p-20
-               text-center text-red-600 items-center flex flex-col justify-center"
+      class="border-red-600 border-4 border-dashed rounded-md w-full h-full px-10 py-10
+               text-center text-red-600 flex flex-col"
+      :class="justifyCenterIfNoFiles"
       @dragover.prevent
       @drop.prevent="dropFile"
     >
-      <label for="file-upload" class="w-full text-2xl">Click to upload or drag files into the box</label>
-      <div v-if="hasFiles" class="flex">
+      <div class="w-full text-2xl mb-4">
+        <label for="file-upload">Click here to upload or drag files into the box</label>
+      </div>
+      <div v-if="hasFiles" class="flex flex-wrap flex-grow">
         <div v-for="(file, idx) in files" :key="idx">
           <FileBoxItem :file-idx="idx" />
         </div>
+      </div>
+      <div v-if="hasFiles" class="w-full mb-4">
+        <ClearButton />
       </div>
     </div>
   </div>
@@ -35,6 +41,9 @@ export default {
     },
     hasFiles () {
       return !!this.files.length
+    },
+    justifyCenterIfNoFiles () {
+      return this.hasFiles ? [] : ['justify-center']
     }
   },
   methods: {

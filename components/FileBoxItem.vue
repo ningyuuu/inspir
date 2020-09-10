@@ -1,5 +1,5 @@
 <template>
-  <div class="m-8 h-32 w-32 text-red-600 rounded-md border-dashed border-red-600 border-2 relative">
+  <div class="m-4 h-32 w-32 text-red-600 rounded-md border-dashed border-red-600 border-2 relative">
     <button class="top-0 right-0 absolute px-2 focus:outline-none" @click="deleteFile">
       x
     </button>

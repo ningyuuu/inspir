@@ -9,7 +9,7 @@
         <MultiFileUploader v-if="isMultiFile" />
       </div>
       <div class="flex-grow-0 pb-4 mb-4">
-        <Button />
+        <SubmitButton />
       </div>
     </div>
   </div>
