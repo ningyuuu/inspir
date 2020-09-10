@@ -17,7 +17,9 @@
 
 <script>
 import config from '~/inspir.config'
+
 export default {
+  transition: 'page',
   computed: {
     isMultiFile () {
       return config.mode.multi

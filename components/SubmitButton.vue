@@ -26,6 +26,7 @@ export default {
   methods: {
     submit () {
       this.$store.dispatch('upload/submit')
+      this.$router.push('/results')
     }
   }
 }

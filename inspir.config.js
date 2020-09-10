@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   title: 'inspir',
   queryUrl: 'https://postman-echo.com/post',
   mode: {

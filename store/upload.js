@@ -1,8 +1,10 @@
-import config from '~/inspir.config'
+import { mode } from '~/inspir.config'
 
 export const state = () => ({
   file: null,
-  files: []
+  files: [],
+  results: null,
+  loading: false
 })
 
 export const getters = {
@@ -13,6 +15,9 @@ export const mutations = {
   updateFile (state, file) {
     state.file = file
   },
+  setResults (state, results) {
+    state.results = results
+  },
   addFileToList (state, files) {
     state.files = state.files.concat(files)
   },
@@ -22,19 +27,28 @@ export const mutations = {
   clear (state) {
     state.files = []
     state.file = null
+  },
+  isLoading (state) {
+    state.loading = true
+  },
+  isNotLoading (state) {
+    state.loading = false
   }
 }
 
 export const actions = {
   async submit (context) {
+    context.commit('isLoading')
     const formData = new FormData()
-    if (config.mode.multi) {
+    if (mode.multi) {
       context.state.files.forEach((f) => {
-        formData.append(config.mode.paramName, f)
+        formData.append(mode.paramName, f)
       })
     } else {
-      formData.append(config.mode.paramName, context.state.file)
+      formData.append(mode.paramName, context.state.file)
     }
-    await this.$axios.$post('/submit', formData)
+    const results = await this.$axios.$post('/submit', formData)
+    context.commit('setResults', results)
+    context.commit('isNotLoading')
   }
 }
