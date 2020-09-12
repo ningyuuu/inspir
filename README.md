@@ -1,20 +1,37 @@
 # inspir
 
-## Build Setup
+## Config
 
-```bash
-# install dependencies
-$ npm install
+To set up your app, use the `inspir.config.js` to adjust settings.
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+#### `title`
+The title of your app, as seen on the app's title, and the home page of the app.
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+#### `queryUrl`
+The API endpoint's url, which the app will be posting to.
 
-# generate static project
-$ npm run generate
+#### `mode`
+A object which represents the kind of data you wish to send.
+
+`multi`: a boolean flag for whether one can upload multiple file or single files only.
+
+`paramName`: name of the param that will be posted (as a form).
+
+## Setup
+
+1. Install dependencies
+```
+npm install
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+2. Build the app into static builds
+```
+npm run generate
+```
+
+3. Copy the static files from `inspir/dist` into the folder wish to host.
+
+You can also switch to host with SSR through a nodejs app itself, which is innately supported by NuxtJS, but this will not be covered in this documentation.
+
+## Issues, bugs and suggestions
+Please file a GitHub issue.
